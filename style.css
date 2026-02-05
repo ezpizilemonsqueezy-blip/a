@@ -1,0 +1,130 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background: linear-gradient(135deg, #fff0f6 0%, #ffe0ec 100%);
+  font-family: "Protest Riot", sans-serif;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.container {
+  height: 100vh;
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.cat-img {
+  width: 30rem;
+  height: 30rem;
+  margin-bottom: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(245, 54, 153, 0.3);
+  border: 5px solid #ff69b4;
+}
+
+.title {
+  font-size: 3.6rem;
+  color: #f53699;
+  text-align: center;
+  margin-bottom: 2rem;
+  text-shadow: 2px 2px 4px rgba(245, 54, 153, 0.2);
+  letter-spacing: 2px;
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+
+  gap: 1rem;
+}
+
+.btn {
+  padding: 1.5rem 2.5rem;
+  border: none;
+  border-radius: 50px;
+
+  color: white;
+  font-size: 1.6rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-block;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.btn--yes {
+  background: linear-gradient(135deg, #40c057 0%, #2f9e44 100%);
+}
+
+.btn--yes:hover {
+  background: linear-gradient(135deg, #51d35c 0%, #40c057 100%);
+}
+
+.btn--no {
+  background: linear-gradient(135deg, #f03e3e 0%, #d41159 100%);
+}
+
+.btn--no:hover {
+  background: linear-gradient(135deg, #f85149 0%, #f03e3e 100%);
+}
+
+.hidden {
+  display: none;
+}
+
+.flowers {
+  position: fixed;
+  font-size: 3rem;
+  color: #ff69b4;
+  opacity: 0.6;
+  pointer-events: none;
+  z-index: 1;
+  letter-spacing: 1.5rem;
+  white-space: nowrap;
+}
+
+.flowers-top {
+  top: 1.5rem;
+  left: 0;
+  right: 0;
+  text-align: center;
+  animation: float 6s ease-in-out infinite;
+}
+
+.flowers-bottom {
+  bottom: 1.5rem;
+  left: 0;
+  right: 0;
+  text-align: center;
+  animation: float 6s ease-in-out infinite reverse;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
