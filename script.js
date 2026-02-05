@@ -19,10 +19,10 @@ noButton.addEventListener("click", function () {
     noCount++;
     let imageIndex;
     if (yakimixAsked) {
-      // Second round: use nai7-nai9
-      imageIndex = Math.min(noCount, 3) + 6;
+      
+      imageIndex = Math.min(noCount, 6) + 6;
     } else {
-      // First round: use nai0-nai6
+      
       imageIndex = Math.min(noCount, MAX_IMAGES);
     }
     changeImage(imageIndex);
@@ -50,6 +50,10 @@ function handleYesClick() {
   yesButton.style.fontSize = "1.6rem";
   yesButton.innerHTML = "Yes";
   noButton.innerHTML = "No";
+  
+  noButton.style.display = "inline-block";
+  noButton.style.pointerEvents = "auto";
+  buttonsContainer.style.pointerEvents = "auto";
 }
 
 function resizeYesButton() {
@@ -83,12 +87,23 @@ function changeImage(image) {
       catImg.src = `img/nailongyes.jpeg`;
     }
   } else {
-    const ext = image === 3 || image === 5 ? "jpg" : "jpeg";
+    const jpgIndices = [3, 5, 10, 11, 12];
+    const ext = jpgIndices.includes(image) ? "jpg" : "jpeg";
     catImg.src = `img/nai${image}.${ext}`;
   }
 }
   
 
 function updateNoButtonText() {
-  noButton.innerHTML = generateMessage(noCount);
+  const msg = generateMessage(noCount);
+  
+  if (msg === "Pretty please?") {
+    noButton.innerHTML = "";
+    noButton.style.display = "none";
+    noButton.style.pointerEvents = "none";
+    buttonsContainer.style.pointerEvents = "auto";
+    return;
+  }
+
+  noButton.innerHTML = msg;
 }
